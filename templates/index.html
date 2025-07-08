@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>News App | By Shreya</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <h1>News Wire</h1>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container main">
+        <form method="POST" class="search-form">
+            <input type="text" name="query" placeholder="e.g. sports, tech, politics" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if articles %}
+            <h2>Top Articles for "{{ query }}":</h2>
+            <div class="articles">
+                {% for article in articles %}
+                    <div class="card">
+                        <h3>{{ article.title }}</h3>
+                        <p>{{ article.description }}</p>
+                        <a href="{{ article.url }}" target="_blank">Read more</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% elif query %}
+            <h2>No articles found for "{{ query }}"</h2>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p>🌐 Built with 💙 by Shreya Garg</p>
+    </footer>
+
+</body>
+</html>
