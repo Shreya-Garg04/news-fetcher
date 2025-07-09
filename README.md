@@ -7,6 +7,7 @@ A minimal Flask web application that fetches real-time news articles based on us
 ## 🚀 Features
 - Search news by keyword (e.g., politics, sports, tech)
 - Clean responsive UI
+- Minimal about nad contact page
 - Uses [NewsAPI.org](https://newsapi.org/) for fetching news data
 
 ---
